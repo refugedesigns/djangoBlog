@@ -39,18 +39,16 @@
           <!-- Top Content -->
           <div class="col-6 col-md-9 col-lg-8">
             <div class="top-header-content">
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="28 Jackson Street, Chicago, 7788569 USA"><i class="fa fa-map-marker"></i> <span>28 Jackson Street, Chicago, 7788569 USA</span></a>
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="info.dento@gmail.com"><i class="fa fa-envelope"></i> <span>info.dento@gmail.com</span></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="@ultimateprogrammer"><i class="fa fa-map-marker"></i> <span>@ultimateprogrammer</span></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="service@ultimateprogrammer.com"><i class="fa fa-envelope"></i> <span>service@ultimateprogrammer.com</span></a>
             </div>
           </div>
           <!-- Top Header Social Info -->
           <div class="col-6 col-md-3 col-lg-4">
-            <div class="top-header-social-info text-right">
+            <div class="top-header-social-info text-right mr-5">
               <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
               <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
             </div>
           </div>
         </div>
@@ -85,7 +83,7 @@
               <div class="classynav">
                 <ul id="nav">
                   <li><a href="index.html">Home</a></li>
-                  <li><a href="#">Pages</a>
+                  <li><a href="#">Categories</a>
                     <ul class="dropdown">
                       <li><a href="index.html">- Home</a></li>
                       <li><a href="about.html">- About Us</a></li>
@@ -111,23 +109,18 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a href="about.html">About</a></li>
-                  <li><a href="service.html">Service</a></li>
-                  <li><a href="pricing.html">Pricing</a></li>
-                  <li><a href="#">Blog</a>
-                    <ul class="dropdown">
-                      <li><a href="blog.html">- Blog</a></li>
-                      <li><a href="blog-details.html">- Blog Details</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="./contact.html">Contact</a></li>
+                  <li><a href="about.html">Portfolio</a></li>
+                  <li><a href="service.html">About</a></li>
+                  <li><a href="pricing.html">Contact</a></li>
                 </ul>
               </div>
               <!-- Nav End -->
             </div>
-
-            <!-- Booking Now Button -->
-            <a href="#" class="btn dento-btn booking-btn">Booking Now</a>
+             <!-- Login Buttons -->
+            <div class="col-sm-2 text-center">
+              <a href="#" class="btn btn-sm btn-primary text-white " style="margin-right: -140px;">Login</a>
+              <a href="#" class="btn btn-sm btn-primary text-white ">Signup</a>
+            </div>
           </nav>
         </div>
       </div>
@@ -136,6 +129,14 @@
   <!-- ***** Header Area End ***** -->
   {% block content %}
   {% endblock %}
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
   <script src="{% static 'blog/js/jquery.min.js' %}"></script>
   <!-- Popper js -->
   <script src="{% static 'blog/js/popper.min.js' %}"></script>
