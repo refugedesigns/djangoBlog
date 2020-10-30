@@ -4,29 +4,6 @@
 {% block content %}
 <!-- ***** Header Area Start ***** -->
 <header class="header-area">
-<!-- Top Header Area -->
-<div class="top-header-area">
-    <div class="container h-100">
-    <div class="row h-100 align-items-center">
-        <!-- Top Content -->
-        <div class="col-6 col-md-9 col-lg-8">
-        <div class="top-header-content">
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="@ultimateprogrammer"><i class="fa fa-map-marker"></i> <span>@ultimateprogrammer</span></a>
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="service@ultimateprogrammer.com"><i class="fa fa-envelope"></i> <span>service@ultimateprogrammer.com</span></a>
-        </div>
-        </div>
-        <!-- Top Header Social Info -->
-        <div class="col-6 col-md-3 col-lg-4">
-        <div class="top-header-social-info text-right mr-5">
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
-<!-- Top Header End -->
 
 <!-- Main Header Start -->
 <div class="main-header-area">
@@ -57,22 +34,24 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="#">Categories</a>
                 <ul class="dropdown">
-                    {% for item in cat_menu %}
-                    <li><a href="index.html">- {{item}}</a></li>
+                    {% for item in category_list %}
+                    <li><a href="{% url 'category' item.name %}">- {{item.name}}</a></li>
                     {% endfor %}
                 </ul>
                 </li>
                 <li><a href="#">Portfolio</a></li>
-                <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
             </div>
             <!-- Nav End -->
         </div>
-            <!-- Login Buttons -->
-        <div class="col-sm-2 text-center">
-            <a href="#" class="btn btn-sm btn-primary text-white " style="margin-right: -140px;">Login</a>
-            <a href="#" class="btn btn-sm btn-primary text-white ">Signup</a>
+            <!-- Top Header Social Info -->
+        <div class="col-6 col-md-2 col-lg-2">
+        <div class="top-header-social-info text-right">
+            <a class="mr-3" href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook-square fa-2x" style="color: #007bff;"></i></a>
+            <a class="mr-3" href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter-square fa-2x" style="color: #007bff;"></i></a>
+            <a class="mr-3" href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fab fa-linkedin fa-2x" style="color: #007bff;"></i></a>
+        </div>
         </div>
         </nav>
     </div>

@@ -14,13 +14,16 @@
     </div>
 </section>
 
+{% if catlist.posts %}
  <!-- Blog Post -->
  <br><br><br>
-    {{cats}}
+    
  <section class="container">
+    <h1>List of {{ catlist.cat }} posts</h1>
+    <br><br>
      <div class="row">     
         <div class="col-md-8">
-            {% for post in category_posts %}
+            {% for post in catlist.posts %}
             <div class="card mb-4">
                 <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
                 <div class="card-body">
@@ -39,6 +42,9 @@
         </div>
     </div>
 </section>
+{% else %}
+<h1>Sorry this page does not exist</h1>
+{% endif %}
 
 
  <!-- Pagination -->

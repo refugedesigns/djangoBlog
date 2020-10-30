@@ -12,33 +12,26 @@
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search for...">
               <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
+                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
               </span>
             </div>
           </div>
         </div>
-
-        <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
-          <div class="card-body">
-            <div class="row">
-                  <ul>                  
-                    <li>
-                  {% for item in cat_menu %}
-                      <a class="m-5" href="#">{{item}}</a>
-                  {% endfor %}
-                    </li>
-                  </ul>                  
-            </div>
-          </div>
-        </div>
+        <br><br><br>
 
         <!-- Side Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
+          <h5 class="card-header">Subscribe to our Newsletter!</h5>
           <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name...">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email...">
+              </div>
+              <button type="button" class="btn btn-primary btn-md btn-block">subscribe</button>
+            </form>
           </div>
         </div>
 
