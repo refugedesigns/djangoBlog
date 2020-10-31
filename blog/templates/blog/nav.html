@@ -31,11 +31,11 @@
             <!-- Nav Start -->
             <div class="classynav">
             <ul id="nav">
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">Blog</a></li>
                 <li><a href="#">Categories</a>
                 <ul class="dropdown">
                     {% for item in category_list %}
-                    <li><a href="{% url 'category' item.name %}">- {{item.name}}</a></li>
+                    <li><a href="{% url 'category' item.name|slugify %}">{{item.name}}</a></li>
                     {% endfor %}
                 </ul>
                 </li>

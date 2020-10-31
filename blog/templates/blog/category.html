@@ -29,7 +29,7 @@
                 <div class="card-body">
                 <h2 class="card-title">{{ post.title }}</h2>
                 <p class="card-text"></p>{{ post.post_body|slice:":300"|safe }}</p>
-                <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read More &rarr;</a>
+                <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                 {{ post.date_created }} by
@@ -43,7 +43,15 @@
     </div>
 </section>
 {% else %}
-<h1>Sorry this page does not exist</h1>
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<br><br><br><br><br><br><br><br><br><br>
+<h1 class="text-center">Sorry this page does not exist</h1>
+</div>
+{% include 'blog/side_widget.html' %}
+</div>
+</div>
 {% endif %}
 
 

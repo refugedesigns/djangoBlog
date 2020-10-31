@@ -3,11 +3,11 @@
 
       {% block content %}
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
+  <div class="col-md-4">
 
         <!-- Search Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Search</h5>
+          <h5 class="card-header bg-primary text-white">Search</h5>
           <div class="card-body">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search for...">
@@ -17,29 +17,36 @@
             </div>
           </div>
         </div>
-        <br><br><br>
+        <br>
+
+
 
         <!-- Side Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Subscribe to our Newsletter!</h5>
-          <div class="card-body">
+          <h5 class="card-header bg-primary text-white">Subscribe to our Newsletter!</h5>
+          <div class="card-body"><br>
             <form>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name...">
-              </div>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name..." required>
+              </div><br>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email...">
-              </div>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email..." aria-describedby="emailHelp" required>
+              </div><br>
               <button type="button" class="btn btn-primary btn-md btn-block">subscribe</button>
             </form>
           </div>
+        </div><br>
+
+                <!--Latest Posts -->
+      <div class="card my-4">
+        <h5 class="card-header bg-primary text-white">Latest Posts</h5><br>
+      {% for post in object_list %}
+        <img class="card-img-top" src="http://placehold.it/350x65" alt="Card image cap">
+        <div>
+        <a href="#"><p class="card-title">{{ post.title }}</p></a>
         </div>
-
-      </div>
-
     </div>
-    <!-- /.row -->
-
+      {% endfor %}
+             
   </div>
-  <!-- /.container -->
-  {% endblock %}
+{% endblock %}
