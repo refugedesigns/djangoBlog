@@ -41,27 +41,26 @@
         <hr>
         <hr>
                 <!-- Single Comment -->
+                {% if not post.comments.all %}
+                <p>There are no comments for this post.</p>
+                {% else %}
+                {% for comment in post.comments.all %}
                 <div class="media mb-4">
                   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                  <div class="media-body">
-                  {% if not post.comments.all %}
-                  <p>There are no comments for this post.</p>
-                  {% else %}
-                    {% for comment in post.comments.all %}
+                  <div class="media-body">                  
                     <h5 class="mt-0">{{ comment.name }}</h5>
                     <small>on {{ comment.published }}</small>
-                    {{ comment.content|linebreaks }}
-                    
-                    {% endfor %}
-                  {% endif %}
+                    {{ comment.content|linebreaks }}                    
                   </div>
                 </div>
+                {% endfor %}
+                {% endif %}
         
                 <!-- Single Comment -->
                 <div class="media mb-4">
                   <div class="media-body">
                     {% with post.comments.count as total_comments %}
-                    <h5 class="mt-0">{{ total_comments }} comment {{ total_comments|pluralize }}</h5>
+                    <h5 class="mt-0">{{ total_comments }} comment{{ total_comments|pluralize }}</h5>
                     {% endwith %}
                   </div>
                 </div>

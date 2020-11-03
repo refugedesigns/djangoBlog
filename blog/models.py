@@ -47,3 +47,10 @@ class Comment(models.Model):
     
     def get_absolute_url(self):
         return reverse('blog/post_detail', args=(str(self.id)))
+
+class Subscribe(models.Model):
+    name    = models.CharField(max_length=200)
+    email   = models.EmailField(max_length=200)
+
+    def __str__(self):
+        return self.name
