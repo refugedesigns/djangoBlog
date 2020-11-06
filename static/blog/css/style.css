@@ -515,4 +515,19 @@ position:absolute;
 background:rgba(12,20,25,0.7);
 }
 
+@media screen and (min-width: 600px){
+    .children form{
+      margin-left: 0px;
+    }
+    .children .children form{
+      margin-left: 0px;
+    } 
+}
+.children form {
+margin-left: -48px;
+}
+.childrn .children form{
+margin-left: -96px;
+}
+
 /*# sourceMappingURL=style.css.map */

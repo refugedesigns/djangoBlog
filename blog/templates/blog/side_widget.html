@@ -40,10 +40,12 @@
       {% for post in latest %}
         <img class="card-img-top" src="http://placehold.it/350x65" alt="Card image cap">
         <div>
-        <a href="#"><p class="card-title">{{ post.title }}</p></a>
+        <a href="{% url 'post_detail' post.slug %}"><p class="card-title">{{ post.title }}</p></a>
         </div>
-    </div>
       {% endfor %}
+    </div>
+      
              
   </div>
+      
 {% endblock %}

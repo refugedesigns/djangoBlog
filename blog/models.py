@@ -2,6 +2,7 @@ from django.db import models
 from users.models import NewUser
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from mptt.models import MPTTModel, TreeForeignKey
 
 # Create your models here.
 
@@ -31,16 +32,17 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('home')
 
-class Comment(models.Model):
+class Comment(MPTTModel):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     name = models.CharField(max_length=255)
     email = models.EmailField()
     content = models.TextField()
     published = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=True)
 
-    class Meta:
-        ordering = ['-published']
+    class MPTTMeta:
+        order_insertion_by = ['-published']
 
     def __str__(self):
         return f"Comment by {self.name}"
