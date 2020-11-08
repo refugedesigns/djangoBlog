@@ -2,6 +2,28 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+
+  
+
+    .children form {
+    margin-left: 0px;
+    }
+    .children .children form{
+    margin-left: 0px;
+    }
+
+    @media screen and(min-width:720px) {
+      .children form{
+        margin-left: -48;
+      }
+      .children .children form{
+        margin-left: -96;
+      }
+    }
+
+</style>
 {% include 'blog/nav.html' %}
 <!-- Page Content -->
 <div class="container">
@@ -61,9 +83,9 @@
                 <div class="children">
                 <div class="media pl-2 pl-md-5">     
                   <div class="media-body">                  
-                    {{ children}}
+                    
                     <small></small>
-                                       
+                    {{ children}}                   
                   </div> 
                 </div>
                 </div><br>
@@ -84,7 +106,7 @@
               <div class="card my-4">
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
-                  <form action="{% url 'add_comment' post.slug %}" enctype="multipart/form-data" method="POST">
+                  <form action="{% url 'add_comment' post.slug %}" id="myForm"  method="POST">
                     {% csrf_token  %}
                     {{form.as_p}}
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -114,26 +136,29 @@
       var a = document.getElementById(id);
       
       a.insertAdjacentHTML('afterend', 
-      
-      '<form id="newForm" class="form-insert py-2" method="POST">\
-											<h2>Reply:</h2>\
-                      <label for="id_name">Name:</label> \
-											<input type="text" name="name" class="form-control" maxlength="255" required id="id_name"> \
-											<select name="parent" class="d-none" id="id_parentt"> \
-                      <option value="' + id + '" selected="' + id +'"></option> \
-                      </select> \
-											<label for="id_email">Email:</label> \
-											<input type="email" name="email" class="form-control" maxlength="254" required id="id_email"> \
-											<label for="id_content">Content:</label> \
-                      <textarea name="content" cols="20" rows="5" class="form-control" required id="id_content"></textarea> \
-                      {% csrf_token %} \
-                      <br> \
-											<button type="submit" class="btn btn-primary">Submit</button> \
-										</form>');
+       
+      '<form action="{% url 'add_comment' post.slug %}"id="newForm" class="form-insert py-2" method="post"> \
+        <div class="d-flex justify-content-between"><h2>Reply:</h2><div><button type="button" class="btn btn-outline-secondary" onclick="formExit()"">Close</button></div></div> \
+        <label for="id_name">Name:</label> \
+        <input type="text" name="name" class="form-control" maxlength="255" required id="id_name"> \
+        <select name="parent" class="d-none" id="id_parentt"> \
+        <option value="' + id + '" selected="' + id +'"></option> \
+        </select> \
+        <label for="id_email">Email:</label> \
+        <input type="email" name="email" class="form-control" maxlength="254" required id="id_email"> \
+        <label for="id_content">Content:</label> \
+        <textarea name="content" cols="20" rows="5" class="form-control" required id="id_content"></textarea> \
+        <br> \
+        {% csrf_token %} \
+        <button type="submit" class="btn btn-primary">Submit</button> \
+      </form>');
     }
 
 
+    $('#myForm').trigger("reset");
   </script> 
+
+
 
 
   {% endblock %}

@@ -20,11 +20,12 @@ class ArticleDetailView(DetailView):
     template_name = 'blog/detail_post.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
         context['comment'] = Comment.objects.all()
         context['form'] = NewCommentForm()
         context['subscribeform'] = SubscribeForm()
         return context
+
 
 class SubscribeCreateView(CreateView):
     model = Subscribe
@@ -39,14 +40,41 @@ class SubscribeCreateView(CreateView):
             return redirect('/')
         return render(request, self.template_name,{'form':form})
 
+
+# def createCommentView(request, post):
+#     post = get_object_or_404(Post, id=post)
+#     user_comment = None
+
+#     if request.method =="POST":
+#         form = NewCommentForm(request.POST)
+#         if form.is_valid():
+#             user_comment = form.save(commit=False)
+#             user_comment.post = post
+#             user_comment.save()
+#             return redirect('/' + post.slug)
+
+#     else:
+#         form = NewCommentForm()
+    
+#     context = {
+#         'post': post,
+#         'comments': user_comment,
+#         'form': form
+#     }
+
+#     return render(request, 'crmapp/detail_post.html', context)
+
+
+
+
 class CommentCreatView(CreateView):
     model = Comment
     form_class = NewCommentForm
 
     def form_valid(self, form):
-        post = get_object_or_404(Post, slug=self.kwargs ['slug'])
+        post = get_object_or_404(Post, slug=self.kwargs['slug'])
         form.instance.post = post
-        return super().form_valid(form)
+        return super(CommentCreatView, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('post_detail', kwargs={'slug': self.object.post.slug})
