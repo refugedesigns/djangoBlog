@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Category, Comment, Subscribe
 from django.views.generic import ListView, DetailView, CreateView
-from .forms import NewCommentForm, SubscribeForm
+from .forms import NewCommentForm, SubscribeForm,SearchForm
 from django.urls import reverse
 
 # Create your views here.
@@ -110,6 +110,24 @@ def latest_posts(request):
         'latest': latest,
     }
     return context
+
+def postSearchView(request):
+    form = SearchForm()
+    subscribeform = SubscribeForm()
+    q = ''
+    results = []
+    if 'q' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            q = form.cleaned_data['q']
+            results = Post.objects.filter(title__contains=q)
+    context = {
+        'form': form,
+        'q': q,
+        'results': results,
+        'subscribeform': subscribeform
+        }
+    return render(request, 'blog/post_search.html', context)
 
 
  

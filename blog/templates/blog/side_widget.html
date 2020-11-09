@@ -9,12 +9,14 @@
         <div class="card my-4">
           <h5 class="card-header bg-primary text-white">Search</h5>
           <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-              </span>
-            </div>
+            <form action="{% url 'post_search' %}" method="get" >
+              <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="Search for...">
+                <span class="input-group-append">
+                  <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
         <br>

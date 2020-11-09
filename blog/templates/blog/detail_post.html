@@ -23,6 +23,20 @@
       }
     }
 
+    .comment-reply{
+      border-width: 0px!important;
+      margin: 0 auto;
+      display: flex;
+      justify-content: end;
+      color:cornflowerblue;
+    }
+    .comment-reply:hover{
+      text-decoration: underline;
+    }
+    .comment-reply:focus{
+      outline: none;
+    }
+
 </style>
 {% include 'blog/nav.html' %}
 <!-- Page Content -->
@@ -75,7 +89,7 @@
                     <small>on {{ node.published }}</small><br>
                     {{ node.content}}<br>
                     {% if node.level < 3 %}
-                    <button class="btn btn-sm btn-primary btn-sml" onclick="myFunction({{node.id}})">reply</button>
+                    <button class="comment-reply" onclick="myFunction({{node.id}})"><small><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</small></button>
                     {% endif %}                 
                   </div>
                 </div><br>
@@ -138,7 +152,7 @@
       a.insertAdjacentHTML('afterend', 
        
       '<form action="{% url 'add_comment' post.slug %}"id="newForm" class="form-insert py-2" method="post"> \
-        <div class="d-flex justify-content-between"><h2>Reply:</h2><div><button type="button" class="btn btn-outline-secondary" onclick="formExit()"">Close</button></div></div> \
+        <div class="d-flex justify-content-between"><h4>Reply:</h4><div><button type="button" class="btn btn-sm btn-outline-primary" onclick="formExit()"">Close</button></div></div> \
         <label for="id_name">Name:</label> \
         <input type="text" name="name" class="form-control" maxlength="255" required id="id_name"> \
         <select name="parent" class="d-none" id="id_parentt"> \

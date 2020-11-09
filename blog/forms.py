@@ -35,3 +35,6 @@ class SubscribeForm(forms.ModelForm):
         super(SubscribeForm, self).__init__(*args, **kwargs)
         self.fields['name'].label = ""
         self.fields['email'].label = ""
+
+class SearchForm(forms.Form):
+    q = forms.CharField()
